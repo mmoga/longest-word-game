@@ -1,8 +1,12 @@
-const paragraph = document.querySelector('#words');
+const paragraph = document.querySelector('#words').innerHTML;
 
 function findLongestWord(str) {
-    var longestWord = str.split(' ').sort(function(a, b) { return b.length - a.length; });
-    return longestWord[0].length;
-    console.log("I'm walkin' here!");
+    const longestWord = str.split(' ').sort(function(a, b) { 
+        console.log("I'm walkin' here!");
+        return b.length - a.length; 
+    });
+        return longestWord[0].length;
   }
   findLongestWord(paragraph);
+
+  
