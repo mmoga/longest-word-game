@@ -20,4 +20,9 @@ p {
     letter-spacing: 0.2rem;
     font-size: 20px;
     text-align: justify;
+    cursor: pointer;
+}
+
+button {
+    cursor: pointer;
 }
