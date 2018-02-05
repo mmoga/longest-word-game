@@ -9,6 +9,8 @@ const spans = wordList.map(word => {       //map says "for each item do this (fu
 const startBtn = document.querySelector('#start-btn');
 const answer = findLongestWord(wordList);
 let loserAlert; 
+let timeLeft;
+let countdown;
 
 //add click event to all the spans that now wrap each individual string
 //also adds spaces between the span elements
@@ -29,12 +31,24 @@ function wordSelect(e) {
 
 //Activates timer
 startBtn.addEventListener('click', startGame);
+startBtn.addEventListener('click', activateTimer);
 
-//gaurd to protect mutliple timer sets
+//gaurd to protect multiple timer sets
  function startGame() {
     if (!loserAlert) {
     loserAlert = window.setTimeout(showAlert, 6000);
     }
+}
+
+//Display countdown
+function activateTimer() {
+    timeLeft = 6;
+    countdown = setInterval(function(){
+    timeLeft--;
+    document.getElementById("countdown").textContent = timeLeft;
+    if(timeLeft <= 0)
+        clearInterval(countdown);
+    },1000);
 }
 
 //finds longest word
