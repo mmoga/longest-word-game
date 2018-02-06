@@ -30,7 +30,8 @@ spans.forEach(span => {
 function wordSelect(e) {
     // console.log(e.target.textContent);
     const selection = e.target.textContent;
-    if (selection === answer && timeLeft > 0) {
+    //make it so you can win
+    if (selection === answer && timeLeft > 0 && isRunning) {
         clearInterval(loserAlert);
         alert('You win!');
         timeLeft = 6;
@@ -39,10 +40,6 @@ function wordSelect(e) {
 
 //Activates timer
 startBtn.addEventListener('click', startGame);
-
-
-
-
 
 
 //gaurd to protect multiple timer sets
@@ -64,7 +61,7 @@ function ticker() {
         clearInterval(loserAlert);
         alert('Sucks to suck!');
         isRunning = false;
-    }
+    } 
 }
 
 //finds longest word
